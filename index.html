@@ -57,6 +57,8 @@ function compareHands() {
     let getPlayerHand = prompt("Your move.");
     let playerHand = getPlayerHand.toLowerCase();
 
+    getCompHand();
+
     if (playerHand == 'rock' || playerHand == 'paper' || playerHand == 'scissors') {
         if (playerHand == 'rock') {
             if (compHand == 'paper') {
@@ -102,7 +104,7 @@ function compareHands() {
 //game round logic
 function game() {
     for (let i = 0; i < 5; i++) {
-        getCompHand();
+        //getCompHand();
         compareHands();
         console.log(roundResult);
         console.log(`Your score: ${playerScore}. Computer's score: ${compScore}`);
