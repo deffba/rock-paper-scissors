@@ -25,6 +25,7 @@ let random;
 //computer's moves
 const compMoves = ["rock", "paper", "scissors"];
 
+//get random computer move
 function getCompHand() {
     random = Math.floor(Math.random() * compMoves.length);
     compHand = compMoves[random]; 
@@ -39,7 +40,7 @@ function oneMoreTime() {
     if (playAgain === 'Y') {
         playerScore = 0;
         compScore = 0;
-        console.clear()
+        console.clear();
         game();
     } else if (playAgain === 'n') {
         alert('Bye!');
