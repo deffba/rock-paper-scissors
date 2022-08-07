@@ -15,7 +15,7 @@
 let playerScore = 0;
 let compScore = 0;
 
-//variable to track round result
+//global var to track round result
 let roundResult;
 
 
@@ -102,7 +102,6 @@ function compareHands() {
 //game round logic
 function game() {
     for (let i = 0; i < 5; i++) {
-        //getCompHand();
         compareHands();
         console.log(roundResult);
         console.log(`Your score: ${playerScore}. Computer's score: ${compScore}`);
@@ -119,6 +118,7 @@ function game() {
     oneMoreTime()
 }
 
+// initialise game
 game();
 </script>
 
