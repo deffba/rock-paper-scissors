@@ -27,3 +27,12 @@ body {
 #actionMsg {
     height: 20px;
 }
+
+.againPrompt {
+    height: 200px;
+    width: 600px;
+    font-size: 90px;
+    position: absolute;
+    top: 19%;
+    left: 19%;
+}
