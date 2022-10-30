@@ -79,16 +79,35 @@ function disableBtns() {
     }
 }
 
+//enable buttons on reset
+function enableBtns() {
+    let button = document.querySelectorAll('.button');
+    for (let i = 0; i < button.length; i++) {
+        button[i].disabled = false;
+    }
+}
+
 //play again
+let againPrompt = document.createElement('button');
+
 function playAgain() {
-    let againPrompt = document.createElement('button');
     againPrompt.textContent = 'Play again?';
     let body = document.querySelector('body');
     body.appendChild(againPrompt);
-    againPrompt.addEventListener('click', resetGame())
+    againPrompt.addEventListener('click', resetGame);
 
 }
 
+//reset game and start again
+function resetGame() {
+    playerScore = 0;
+    compScore = 0;
+    pScoreDisplay.textContent = playerScore;
+    cScoreDisplay.textContent = compScore;
+    actionDisplay.textContent = 'YOU HAVE BEEN GRANTED ANOTHER CHANCE, FILTHY ORGANIC ENTITY.';
+    enableBtns();
+    againPrompt.remove();
+}
 
 
 
