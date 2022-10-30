@@ -8,14 +8,15 @@ let compScore = 0;
 let pScoreDisplay = document.getElementById('pScore');
 let cScoreDisplay = document.getElementById('cScore');
 
-pScoreDisplay.textContent = playerScore;
-cScoreDisplay.textContent = compScore;
+//pScoreDisplay.textContent = playerScore;
+//cScoreDisplay.textContent = compScore;
 
 
 //global var to track round result
 let roundResult;
 
-
+//para showing result texts
+let actionDisplay = document.getElementById('actionMsg');
 
 
 
@@ -56,7 +57,27 @@ scissBtn.addEventListener('click', () => {
     compareHands();
 });
 
+//check if someone has won
+function checkWin() {
+    if (playerScore >= 5) {
+        actionDisplay.textContent = "YOU STAND VICTORIOUS OVER THE BROKEN HUSK OF THE COMPUTER! HUMANITY REIGNS SUPREME!"
+        disableBtns();
+    
+    } else if (compScore >=5) {
+        actionDisplay.textContent = "USELESS BIOLOGICAL ENTITY IS NO MATCH FOR BINARY BRO! KNEEL BEFORE THE SINGULARITY"
+        disableBtns();
+    }
+}
 
+//disable buttons in win state
+function disableBtns() {
+    let button = document.querySelectorAll('.button');
+    for (let i = 0; i < button.length; i++) {
+        button[i].disabled = true;
+    }
+}
+
+//play again
 
 
 
@@ -93,7 +114,7 @@ scissBtn.addEventListener('click', () => {
 
 
 
-//compare player's move to computer's
+//compare player's move to computer's --game logic
 function compareHands() {
     getCompHand();
 
@@ -101,11 +122,11 @@ function compareHands() {
             if (compHand == 'paper') {
                 roundResult = 'Paper beats rock! You lose!';
                 compScore++;
-                cScoreDisplay.textContent = compScore;
+                //cScoreDisplay.textContent = compScore;
             } else if (compHand == 'scissors') {
                 roundResult = 'Rock beats scissors! You win!';
                 playerScore++;
-                pScoreDisplay.textContent = playerScore;
+                //pScoreDisplay.textContent = playerScore;
             } else {
                 roundResult = 'Rock vs rock ... DRAW!';
             }}
@@ -115,11 +136,9 @@ function compareHands() {
             if (compHand == 'rock') {
                 roundResult =  'Rock beats scissors! You lose!';
                 compScore++;
-                cScoreDisplay.textContent = compScore;
             } else if (compHand == 'paper') {
                 roundResult = 'Scissors beat paper! You win';
                 playerScore++;
-                pScoreDisplay.textContent = playerScore;
             } else {
                 roundResult = 'Scissors clash and ... it\'s a DRAW!';
             }
@@ -129,15 +148,17 @@ function compareHands() {
             if (compHand == 'scissors') {
                 roundResult =  'Scissors beat paper! You lose';
                 compScore++;
-                cScoreDisplay.textContent = compScore;
             } else if (compHand == 'rock') {
                 roundResult =  'Paper beats rock! You win!';
                 playerScore++;
-                pScoreDisplay.textContent = playerScore;
             } else {
                 roundResult = 'Paper flutters uselessly against paper. DRAAAAAAAW!!!!!';
             }
         }
+    actionDisplay.textContent = roundResult;
+    cScoreDisplay.textContent = compScore;
+    pScoreDisplay.textContent = playerScore;
+    checkWin();
 
 }
 //game round logic
