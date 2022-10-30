@@ -21,15 +21,48 @@ function getCompHand() {
     
 }
 
-let playerHand;
+var playerHand;
 
-function getPlayerHand() {
-    let button = document.getElementsByClassName('button');
-    button.addEventListener('click', () => {
-        let move = button.textContent;
-        playerHand = move;
-    })
-}
+//get player move
+let rockBtn = document.getElementById('rock');
+let paperBtn = document.getElementById('paper');
+let scissBtn = document.getElementById('scissors')
+
+rockBtn.addEventListener('click', () => {
+    let move = rockBtn.textContent;
+    playerHand = move.toLowerCase();
+    console.log(playerHand);
+});
+
+paperBtn.addEventListener('click', () => {
+    let move = paperBtn.textContent;
+    playerHand = move.toLowerCase();
+    console.log(playerHand);
+});
+
+scissBtn.addEventListener('click', () => {
+    let move = scissBtn.textContent;
+    playerHand = move.toLowerCase();
+    console.log(playerHand);
+});
+
+
+
+
+
+
+
+/*function getPlayerHand() {
+    var button = document.querySelectorAll('button');
+    for (let i = 0; i < button.length; i++) {
+        button[i].addEventListener('click', () => {
+        let move = button[i].textContent;
+        playerHand = move.toLowerCase();
+        return;       
+    })};
+    
+}*/
+
 
 //check if player wants to play again
 function oneMoreTime() {
@@ -52,9 +85,7 @@ function oneMoreTime() {
 
 //compare player's move to computer's
 function compareHands() {
-    let getPlayerHand = prompt("Your move.");
-    let playerHand = getPlayerHand.toLowerCase();
-
+    getPlayerHand();
     getCompHand();
 
     if (playerHand == 'rock' || playerHand == 'paper' || playerHand == 'scissors') {
@@ -94,7 +125,7 @@ function compareHands() {
             }
         } 
     } else {
-        alert('Please enter \'Rock\', \'Paper\' or \'Scissors\'!');
+        //alert('Please enter \'Rock\', \'Paper\' or \'Scissors\'!');
         compareHands();
     }
 }
@@ -119,4 +150,4 @@ function game() {
 }
 
 // initialise game
-game();
+//game();
