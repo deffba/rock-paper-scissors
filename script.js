@@ -109,7 +109,7 @@ function resetGame() {
 
 
 
-//compare player's move to computer's --game logic
+//Game logic
 function compareHands() {
     getCompHand();
 
