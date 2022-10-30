@@ -8,9 +8,6 @@ let compScore = 0;
 let pScoreDisplay = document.getElementById('pScore');
 let cScoreDisplay = document.getElementById('cScore');
 
-//pScoreDisplay.textContent = playerScore;
-//cScoreDisplay.textContent = compScore;
-
 
 //global var to track round result
 let roundResult;
@@ -89,6 +86,7 @@ function enableBtns() {
 
 //play again
 let againPrompt = document.createElement('button');
+againPrompt.classList.add('againPrompt')
 
 function playAgain() {
     againPrompt.textContent = 'Play again?';
@@ -108,38 +106,6 @@ function resetGame() {
     enableBtns();
     againPrompt.remove();
 }
-
-
-
-
-/*function getPlayerHand() {
-    var button = document.querySelectorAll('button');
-    for (let i = 0; i < button.length; i++) {
-        button[i].addEventListener('click', () => {
-        let move = button[i].textContent;
-        playerHand = move.toLowerCase();
-        return;       
-    })};
-    
-}*/
-
-
-//check if player wants to play again
-/*function oneMoreTime() {
-    let playAgain = prompt('Play again? (Y/n)')
-
-    if (playAgain === 'Y') {
-        playerScore = 0;
-        compScore = 0;
-        console.clear();
-        game();
-    } else if (playAgain === 'n') {
-        alert('Bye!');
-    } else {
-        alert('Enter \'Y\' or \'n\'');
-        oneMoreTime()
-    }
-}*/
 
 
 
@@ -190,28 +156,4 @@ function compareHands() {
     checkWin();
 
 }
-//game round logic
-function game() {
 
-    for (let i = 0; i < 5; i++) {
-        compareHands();
-        console.log(roundResult);
-        console.log(`Your score: ${playerScore}. Computer's score: ${compScore}`);
-        playerHand = 0;
-    }
-
-    if (playerScore > compScore) {
-        console.log('YOU DEFEATED THE COMPUTER!');
-    } else if (playerScore < compScore) {
-        console.log('You were beaten by a machine, loser!')
-    } else {
-        console.log('FINAL RESULT: DRAW!');
-    }
-
-
-
-    //oneMoreTime()
-}
-
-// initialise game
-//game();
