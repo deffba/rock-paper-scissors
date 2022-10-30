@@ -25,8 +25,7 @@ const compMoves = ["rock", "paper", "scissors"];
 //get random computer move
 function getCompHand() {
     random = Math.floor(Math.random() * compMoves.length);
-    compHand = compMoves[random]; 
-    //return compHand;
+    compHand = compMoves[random];
     
 }
 
