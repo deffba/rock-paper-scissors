@@ -23,3 +23,7 @@ body {
 .scoreNum {
     font-size: 40px;
 }
+
+#actionMsg {
+    height: 20px;
+}

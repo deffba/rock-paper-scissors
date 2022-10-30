@@ -62,10 +62,12 @@ function checkWin() {
     if (playerScore >= 5) {
         actionDisplay.textContent = "YOU STAND VICTORIOUS OVER THE BROKEN HUSK OF THE COMPUTER! HUMANITY REIGNS SUPREME!"
         disableBtns();
+        playAgain();
     
     } else if (compScore >=5) {
         actionDisplay.textContent = "USELESS BIOLOGICAL ENTITY IS NO MATCH FOR BINARY BRO! KNEEL BEFORE THE SINGULARITY"
         disableBtns();
+        playAgain();
     }
 }
 
@@ -78,6 +80,14 @@ function disableBtns() {
 }
 
 //play again
+function playAgain() {
+    let againPrompt = document.createElement('button');
+    againPrompt.textContent = 'Play again?';
+    let body = document.querySelector('body');
+    body.appendChild(againPrompt);
+    againPrompt.addEventListener('click', resetGame())
+
+}
 
 
 
